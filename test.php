@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Baseball Statistics</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
 <body>
-
 <?php
-    
-    echo "Database II Final Project - Baseball database";
-    
-    $db_connection = mysqli_connect("localhost", "Joey", "123456", "Baseball");
-    
-    $query = "select * from teams";
-    $res = mysqli_query($db_connection, $query);
-    
-    
-    while($row = mysqli_fetch_assoc($res)) {
-        
-        echo "<Left><table border=1 width=100%><tr>";
-        
-        // $row is array... foreach( .. ) puts every element
-        // of $row to $cell variable
-        
-        foreach($row as $cell)
-        echo "<td>$cell</td>";
-        
-        echo "</tr>\n";
-        
-        
-    }
-    
-    
-    
-    mysqli_close($db_connection);
-    ?>
+	// Define variables
+	$first_name = $last_name = " ";
+?>
+	
+	<header>
+		<h1>Baseball Statistics</h1>
+	</header>
 
-// 111111111111111
+	<tr>
+		<td>
+		<form method="post" action="#"> 
+   		First Name:<input type="text" name="first_name" value="<?php echo $first_name;?>">
+		<br><br>
+   		Last Name:<input type="text" name="last_name" value="<?php echo $last_name;?>">
+   		<br><br>
+   		<input type="submit" name="submit" value="Submit"> 
+		</form>
+		</td>
+	</tr>
+<?php
+	echo "<h2>Your Input:</h2>";
+	echo $first_name;
+	echo "<br>";
+	echo $last_name;
+	echo "<br>";
+?>
 
-
-
+<footer>
+</footer>
 </body>
 </html>
